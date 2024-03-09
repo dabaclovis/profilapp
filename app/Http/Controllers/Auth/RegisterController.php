@@ -92,6 +92,8 @@ class RegisterController extends Controller
                 'lname' => $request->input('lname'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         return redirect()->route('login');
     }

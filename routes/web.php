@@ -43,4 +43,5 @@ Route::prefix('users')->group(fn() => [
     Route::controller(HomeController::class)->group(function(){
         Route::get('home','index')->name('home');
     }),
+    Route::resource('articles', ArticlesController::class),
 ]);

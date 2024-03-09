@@ -19,12 +19,12 @@
 <body id="and">
      <style>
         #and{
-            background-color: rgba(102, 103, 103, 0.828);
+            background-color: rgba(211, 229, 229, 0.828);
         }
      </style>
     <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/home') }}">
+            <a class="navbar-brand" href="{{ url('users/home') }}">
                 {{ __('SHOWCASE')}}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -36,7 +36,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class=" nav-item">
-                        <a href="{{ route('home') }}" class=" nav-link">Home</a>
+                        <a href="{{ route('home') }}" class=" nav-link {{ request()->is('users/home') ? 'active' : '' }}">Home</a>
+                    </li>
+                    <li class=" nav-item">
+                        <a href="{{ route('articles.index') }}" class=" nav-link {{ request()->is('users/articles') ? 'active' : '' }}">Articles</a>
                     </li>
                 </ul>
 
@@ -92,6 +95,16 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#formed').hide();
+            $('#hided').click(function(e){
+                e.preventDefault();
+                $('#formed').show();
+                $('#landed').hide();
+            });
+        });
     </script>
 </body>
 
